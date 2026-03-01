@@ -1,77 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Escanor Sales</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>Ɛscanor Sales</h1>
-  <p>Reliable Digital Services & Tools</p>
+<!-- ===== HEADER ===== -->
+<header class="navbar">
+  <div class="nav-left">
+    <h1>Ɛscanor Sales</h1>
+  </div>
+  <div class="nav-right">
+    <a href="#virtual">Virtual Numbers</a>
+    <a href="#methods">Ban Methods</a>
+    <a href="https://wa.me/14314550063" class="cta">Contact</a>
+  </div>
 </header>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <h2>Fast • Secure • Trusted</h2>
-  <p>Digital services delivered manually with care and support.</p>
-  <a href="#products" class="btn">View Products</a>
-</section>
-
-<section id="products">
-  <h2>Our Products</h2>
-
-  <div class="products">
-
-    <div class="card">
-      <h3>US Virtual Numbers</h3>
-      <p>
-        High-quality US virtual numbers for
-        account verification and communication.
-      </p>
-      <a href="https://t.me/@Kingkw3si?text=I%20want%20to%20buy%20US%20Virtual%20Number"
-         class="btn">
-        Buy via Telegram
-      </a>
-    </div>
-
-    <div class="card">
-      <h3>WhatsApp bug,Dos tool(Layer 4) & Telegram spam tool</h3>
-      <p>
-        A collection of  tools and resources
-        for you
-      </p>
-      <a href="https://t.me/@Kingkw3si?text=I%20want%20to%20buy%203-in-1%20Toolkit"
-         class="btn">
-        Buy via Telegram
-      </a>
-    </div>
-
+  <div class="hero-content">
+    <h2>Professional Digital Services</h2>
+    <p>Clean. Direct. Business-only transactions.</p>
+    <a href="#virtual" class="hero-btn">Explore Services</a>
   </div>
 </section>
 
-<section class="about">
-  <h2>About Escanor Sales</h2>
-  <p>
-   Escanor Sales provides digital services and tools
-    with a focus on reliability, transparency, and user support.
-  </p>
-</section>
+<!-- ===== MAIN CONTENT ===== -->
+<main class="content">
 
-<section class="contact">
-  <h2>Contact</h2>
-  <p>Telegram: <a href="https://t.me/@Kingkw3si">@Kingkw3si</a></p>
-</section>
+  <!-- ===== VIRTUAL NUMBERS ===== -->
+  <section id="virtual" class="service-row">
+    <div class="service-title">
+      <h3>Virtual Numbers</h3>
+      <span>Fixed Price</span>
+    </div>
 
-<footer>
+    <div class="service-controls">
+      <select id="vnPlatform">
+        <option value="">Select Platform</option>
+        <option>WhatsApp</option>
+        <option>Telegram</option>
+        <option>Facebook</option>
+        <option>Other</option>
+      </select>
+
+      <div class="price">$5</div>
+
+      <button onclick="contactVN()">Contact to Buy</button>
+    </div>
+  </section>
+
+  <!-- ===== BAN METHODS ===== -->
+  <section id="methods" class="service-row">
+    <div class="service-title">
+      <h3>Ban Methods</h3>
+      <span>Guides & Resources</span>
+    </div>
+
+    <div class="service-controls">
+      <select id="method">
+        <option value="">Select Method</option>
+        <option>Bloody script</option>
+        <option>Gambling x bloody sc</option>
+        <option>Recruitment to kill Mark Zuckerberg</option>
+        <option>All scripts</option>
+      </select>
+
+      <div class="price" id="methodPrice">$0</div>
+
+      <button onclick="contactMethod()">Contact to Buy</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>© 2026 Ɛscanor Sales</p>
   <p>
-    ⚠️ Disclaimer: Escanor Sales does not support illegal activities,
-    hacking, spamming, account abuse, or misuse of services.
-    All products are provided for lawful purposes only.
+     Digital services only •
+    <a href="https://wa.me/14314550063" target="_blank">
+      WhatsApp +1 431 455 0063
+    </a>
   </p>
-  <p>© 2026 Escanor Sales</p>
 </footer>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+const WA_NUMBER = "14314550063";
+
+// Virtual Numbers
+function contactVN() {
+  const platform = document.getElementById("vnPlatform").value;
+  if (!platform) {
+    alert("Please select a platform");
+    return;
+  }
+
+  const message = encodeURIComponent(
+    `Hello, I want to buy a Virtual Number.\n\nPlatform: ${platform}\nPrice: $5\n\nEscanor Sales`
+  );
+
+  window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, "_blank");
+}
+
+// Ban Methods
+const methodSelect = document.getElementById("method");
+const methodPriceDiv = document.getElementById("methodPrice");
+
+// Update price automatically
+methodSelect.addEventListener("change", () => {
+  const selected = methodSelect.value;
+  let price = "$4"; // default price for all methods
+
+  if (selected === "All scripts") {
+    price = "$8"; // special price
+  }
+
+  methodPriceDiv.innerText = price;
+});
+
+function contactMethod() {
+  const method = methodSelect.value;
+  const price = methodPriceDiv.innerText;
+
+  if (!method) {
+    alert("Please select a method");
+    return;
+  }
+
+  const message = encodeURIComponent(
+    `Hello, I want to buy a Ban Method.\n\nBan script: ${method}\nPrice: ${price}\n\nEscanor Sales`
+  );
+
+  window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, "_blank");
+}
+</script>
 
 </body>
 </html>
